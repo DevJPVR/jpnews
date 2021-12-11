@@ -24,8 +24,8 @@ export const config = {
 
 const relevantEvents = new Set([
     'checkout.session.completed',
-    'customer.subscriptions.updated',
-    'customer.subscriptions.deleted',
+    'customer.subscription.updated',
+    'customer.subscription.deleted',
 
 ])
 
@@ -39,6 +39,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     try {
         event = stripe.webhooks.constructEvent(buf, secret, process.env.STRIPE_WEBHOOK_SECRET)
     }catch(err) {
+        console.log(err)
         return res.status(400).send(`Webhook Error: ${err.message}`);
     }
 
@@ -73,8 +74,9 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
                 throw new Error('Unhandled event.')
         }
 
-       }catch (error) {
-        return res.json({ error: 'Webhook handler filed' })
+       }catch (err) {
+        console.log(err)
+        return res.status(400).json({ error: 'Webhook handler filed' }) 
        }
         
     }
