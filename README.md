@@ -1,4 +1,4 @@
-<h1 align="center">IGNEWS - PROJETO EM DESENVOLVIMENTO</h1>
+<h1 align="center">IGNEWS
 
 <p align="center">
   <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/DevJPVR/jpnews?color=%2304D361">
