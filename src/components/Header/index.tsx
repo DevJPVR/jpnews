@@ -1,12 +1,14 @@
 import { SignInButton } from '../SignInButton';
 import styles from './styles.module.scss';
 import { ActiveLink } from '../ActiveLink';
+import Image from 'next/image'
+
 
 export function Header() {
     return (
     <header className={styles.headerContainer}>
         <div className={styles.headerContent}>
-            <img src="/images/logo.svg" alt="jp.news" />
+            <Image src="/images/logo.svg" width="110" height="31" alt="jp.news" />
             <nav>
                 <ActiveLink ActiveClassName={styles.active} href="/">
                      <a>Home</a>
