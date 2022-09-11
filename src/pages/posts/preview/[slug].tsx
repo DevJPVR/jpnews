@@ -22,10 +22,10 @@ interface PostPreviewProps {
 export default function PostPreview({ post }: PostPreviewProps) {
     const [session] = useSession()
     const { isFallback } = useRouter()
-    
-    if(isFallBack) {
-        return <p>Loading...</p>
-    }
+
+  if (isFallback) {
+    return <p>loading...</p>
+  }
 
     useEffect(() => {
         if (session?.activeSubscription) {
