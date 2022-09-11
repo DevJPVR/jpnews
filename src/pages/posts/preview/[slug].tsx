@@ -7,7 +7,7 @@ import Link from "next/link";
 
 import styles from '../post.module.scss'
 import { useEffect } from "react";
-import router from "next/router";
+import router, { useRouter } from "next/router";
 
 interface PostPreviewProps {
     post: {
@@ -21,7 +21,7 @@ interface PostPreviewProps {
 
 export default function PostPreview({ post }: PostPreviewProps) {
     const [session] = useSession()
-    const { isFallBack } = useRouter()
+    const { isFallback } = useRouter()
     
     if(isFallBack) {
         return <p>Loading...</p>
