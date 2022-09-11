@@ -21,6 +21,11 @@ interface PostPreviewProps {
 
 export default function PostPreview({ post }: PostPreviewProps) {
     const [session] = useSession()
+    const { isFallBack } = useRouter()
+    
+    if(isFallBack) {
+        return <p>Loading...</p>
+    }
 
     useEffect(() => {
         if (session?.activeSubscription) {
@@ -58,7 +63,7 @@ export default function PostPreview({ post }: PostPreviewProps) {
 export const getStaticPaths: GetStaticPaths = async () => {
     return {
         paths: [],
-        fallback: 'blocking'
+        fallback: true,
     }
 }
 
